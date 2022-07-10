@@ -1,137 +1,150 @@
+//add team member classes
+const Employee = require('./lib/Employee.js');
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML');
-const test = require('./lib/Manager.js');
 
-//List of questions to ask user initially
-const promptUser = () => {
+
+const teamMembers = [];
+
+//function to grab new Manager info
+
+const addManager = ()=>{
+    return inquirer.prompt([
+    {
+        type: 'input',
+        name: 'name',
+        message: 'Enter team manager name'
+    },
+    {
+        type: 'input',
+        name: 'empID',
+        message: 'Enter EmployeeID'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter email address'
+    },
+    {
+        type: 'input',
+        name: 'officeNum',
+        message: 'Enter office number'
+    }
+]);    
+};
+
+// fuction to grab new Engineer info
+
+const addEngineer = ()=>{
     return inquirer.prompt([
         {
-            type: 'input',
-            name: 'title',
-            message: 'Enter team manager name'
-        }, {
-            type: 'input',
-            name: 'empID',
-            message: 'Enter EmployeeID' 
+        type: 'input',
+        name: 'name',
+        message: 'Enter Engineer name'
+        }, 
+        {
+        type: 'input',
+        name: 'empID',
+        message: 'Enter Engineer employeeID'
         },
         {
-            type: 'input',
-            name: 'email',
-            message: 'Enter email address' 
+        type: 'input',
+        name: 'email',
+        message: 'Enter Engineer email address'
         },
         {
-            type: 'input',
-            name: 'officeNum',
-            message: 'Enter Office Number' 
-        },
-        {
-            type: 'list',
-            name: 'addToTeam',
-            message: 'Add a member to your team' ,
-            choices: ['Engineer', 'Intern', 'I have finished building my team']
-        },
-        {
-            type: 'input',
-            name: 'EngName',
-            message: 'Enter Engineer Name',
-            when(answers) {
-                return answers.addToTeam === 'Engineer'
-                }
-         }, {
-            type: 'input',
-            name: 'EngID',
-            message: 'Enter Engineer EmployeeID',
-            when(answers) {
-                return answers.addToTeam === 'Engineer'
-                }
-         }, {
-            type: 'input',
-            name: 'EngEmail',
-            message: 'Enter Engineer Email',
-            when(answers) {
-                return answers.addToTeam === 'Engineer'
-                }
-         },
-         {
-            type: 'input',
-            name: 'EngGit',
-            message: 'Enter Engineer Github User Name',
-            when(answers) {
-                return answers.addToTeam === 'Engineer'
-                }
-         },
-         {
-            type: 'input',
-            name: 'IntName',
-            message: 'Enter Intern Name',
-            when(answers) {
-                return answers.addToTeam === 'Intern'
-                }
-         },
-         {
-            type: 'input',
-            name: 'intID',
-            message: 'Enter Intern ID',
-            when(answers) {
-                return answers.addToTeam === 'Intern'
-                }
-         },
-          {
-            type: 'input',
-            name: 'intEmail',
-            message: 'Enter Intern email address',
-            when(answers) {
-                return answers.addToTeam === 'Intern'
-                }
-         },
-          {
-            type: 'input',
-            name: 'intSchool',
-            message: 'Enter Intern School',
-            when(answers) {
-                return answers.addToTeam === 'Intern'
-                }
-         }
-   
+        type: 'input',
+        name: 'github',
+        message: 'Enter Engineer Github address'
+        }
+        
     ]);
 };
 
-//List of questions to ask users to add to their team
+// function to grab new Intern info
 
-const addMembers = () => {
-    return inquirer.prompt([{
-            type: 'list',
-            name: 'addToTeam',
-            message: 'Add a member to your team' ,
-            choices: ['Engineer', 'Intern', 'I have finished building my team']
+const addIntern = ()=>{
+    return inquirer.prompt([
+         {
+        type: 'input',
+        name: 'name',
+        message: 'Enter Intern name'
+        },
+        {
+        type: 'input',
+        name: 'empID',
+        message: 'Enter employeeID'
+        },
+        {
+        type: 'input',
+        name: 'email',
+        message: 'Enter Intern email'
+        },
+         {
+        type: 'input',
+        name: 'school',
+        message: 'Enter Intern school'
         }
 
+
     ]);
-}
+};
 
-
-
-promptUser()
-.then(answers => {
-   
-    if (answers.addToTeam === 'Engineer'){
-        console.log('Engie Baby')
-    }  
+var addNewTeamMember = ()=>{
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'addToTeam',
+            message: 'Would you like to add more team members?',
+            choices: ['Engineer', 'Intern', 'I am finished building my team']
+        }
+    ])
+    .then(choice =>{
     
-    else if (answers.addToTeam === 'Intern'){
-        console.log('baby Intern');
-    }
-    else if (answers.addToTeam === 'I have finished building my team'){
+       if (choice.addToTeam === 'Engineer'){
+        console.log('Engineer');
+       } 
+
+       if (choice.addToTeam == 'Intern'){
+        console.log('Intern');
+       }
+
+       if (choice.addToTeam === 'I am finished building my team'){
+        console.log('You are done!');
+       }
        
-    const hTML = generateHTML(answers);
-    console.log(hTML);
-
-    fs.writeFile('./index.html', hTML, err =>{
-        if (err) throw new Error(err);
-    })
-    }
+        })
    
+    }; //end of addNewTeamMember
 
+addNewTeamMember();
 
-})
+//addManager().
+//then(answers =>{
+ //   console.log(answers);
+ //   var newManager = new Manager(answers.name, answers.empID, answers.email, answers.officeNum);
+ //   teamMembers.push(newManager);
+ //   console.log(teamMembers)
+//})
+
+// addEngineer()
+// .then(answers =>{
+//    console.log(answers);
+//    var newEngineer = new Engineer(answers.name, answers.empID, answers.email, answers.github);
+//    teamMembers.push(newEngineer);
+//    console.log(newEngineer);
+//    console.log(teamMembers);
+// })
+
+// addIntern()
+// .then(answers =>{
+//     console.log(answers);
+//     var newIntern = new Intern(answers.name, answers.empID, answers.email, answers.school);
+//     teamMembers.push(newIntern);
+//     console.log(teamMembers);
+// })
