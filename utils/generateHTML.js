@@ -2,34 +2,30 @@
 function sortEmployees(array){
     for (var i = 0; i<array.length; i++)
 {
-    console.log(array[i]);
     if (array[i].officeNum){
-        console.log('this is a manager');
-        var person = {
+            var person = {
             name: array[i].name,
             empID: array[i].empID,
             email: array[i].email,
             officeNum: array[i].officeNum
         }
-        console.log(person);
-        displayManager(person);
+           displayManager(person);
 
     }
 
     if (array[i].github){
-        console.log('this is an engineer');
-        var engPerson = {
+           var engPerson = {
             name: array[i].name,
             empID: array[i].empID,
             email: array[i].email,
             github: array[i].github
         }
-        console.log(engPerson);
+ 
         displayEngineer(engPerson);
     }
     
     if (array[i].school){
-        console.log('this is an intern');
+        
         var internPerson = {
             name: array[i].name,
             empID: array[i].empID,
@@ -45,9 +41,6 @@ function sortEmployees(array){
 ////////////
 
 var html = [];
- 
- 
-
 
 function displayManager(person){
     html.push(` 
@@ -101,6 +94,10 @@ function displayIntern(internPerson){
 }
 
 /////////////////
+function htmlJoin(){
+    var htmlJoin = html.join('');
+    return htmlJoin;
+}
 
 
 function generateHTML(array){
@@ -119,7 +116,7 @@ function generateHTML(array){
 <body>
     
  
-${html}
+${htmlJoin()}
 
 
  <script src="./utils.generateHTML.js"></script>
