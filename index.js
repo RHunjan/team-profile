@@ -82,7 +82,7 @@ const addIntern = ()=>{
         {
         type: 'input',
         name: 'empID',
-        message: 'Enter employeeID'
+        message: 'Enter Intern employeeID'
         },
         {
         type: 'input',
@@ -123,7 +123,14 @@ var addNewTeamMember = ()=>{
 
        if (choice.addToTeam === 'I am finished building my team'){
         console.log(teamMembers);
+        console.log(typeof teamMembers);
         console.log('You are done!');
+        var page = generateHTML(teamMembers);
+          fs.writeFile('./index.html', page, err => {
+    if (err) throw new Error(err);
+ 
+  })
+
        }
        
         })

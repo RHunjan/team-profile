@@ -1,13 +1,64 @@
-const test = require('../lib/Manager.js');
+//sort employee by type and create objects with info
+function sortEmployees(array){
+    for (var i = 0; i<array.length; i++)
+{
+    console.log(array[i]);
+    if (array[i].officeNum){
+        console.log('this is a manager');
+        var person = {
+            name: array[i].name,
+            empID: array[i].empID,
+            email: array[i].email,
+            officeNum: array[i].officeNum
+        }
+        console.log(person);
+        displayManager(person);
+
+    }
+
+    if (array[i].github){
+        console.log('this is an engineer');
+        var engPerson = {
+            name: array[i].name,
+            empID: array[i].empID,
+            email: array[i].email,
+            github: array[i].github
+        }
+        console.log(engPerson);
+        displayEngineer(engPerson);
+    }
+    
+    if (array[i].school){
+        console.log('this is an intern');
+    }
+}
+}
+
+////////////
+
+html = [];
+
+function displayManager(person){
+    html.push('a test');
+    console.log(html);
+   
+
+}
+
+function displayEngineer(engPerson){
+    html.push('another test');
+    console.log(html);
+
+}
 
 
- 
+/////////////////
 
-function generateHTML(data){
+function generateHTML(array){
+    sortEmployees(array);
  
     return `
-    
-    <!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,18 +69,14 @@ function generateHTML(data){
 </head>
 <body>
     
- <h1> ${data.title} <h1>
+ <h1> test <h1>
 
-
+${html};
 
 
  <script src="./utils.generateHTML.js"></script>
 </body>
 </html>
-    
-    
-    
-    
     `;
 }
 
