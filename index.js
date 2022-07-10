@@ -62,9 +62,13 @@ const addEngineer = ()=>{
         name: 'github',
         message: 'Enter Engineer Github address'
         }
-        
-    ]);
-};
+      ])
+    .then(answers =>{
+        var newEngineer = new Engineer(answers.name, answers.empID, answers.email, answers.github);
+        teamMembers.push(newEngineer);
+        addNewTeamMember();
+     }) 
+ };
 
 // function to grab new Intern info
 
@@ -90,9 +94,12 @@ const addIntern = ()=>{
         name: 'school',
         message: 'Enter Intern school'
         }
-
-
-    ]);
+    ]).then(answers =>{
+        var newIntern = new Intern(answers.name, answers.empID, answers.email, answers.school);
+        teamMembers.push(newIntern);
+        addNewTeamMember();
+    }
+    )
 };
 
 var addNewTeamMember = ()=>{
@@ -105,16 +112,17 @@ var addNewTeamMember = ()=>{
         }
     ])
     .then(choice =>{
-    
+   
        if (choice.addToTeam === 'Engineer'){
-        console.log('Engineer');
+        addEngineer();
        } 
 
        if (choice.addToTeam == 'Intern'){
-        console.log('Intern');
+        addIntern()
        }
 
        if (choice.addToTeam === 'I am finished building my team'){
+        console.log(teamMembers);
         console.log('You are done!');
        }
        
@@ -122,29 +130,14 @@ var addNewTeamMember = ()=>{
    
     }; //end of addNewTeamMember
 
-addNewTeamMember();
+ 
 
-//addManager().
-//then(answers =>{
- //   console.log(answers);
- //   var newManager = new Manager(answers.name, answers.empID, answers.email, answers.officeNum);
- //   teamMembers.push(newManager);
- //   console.log(teamMembers)
-//})
+addManager()
+.then(answers =>{
+   var newManager = new Manager(answers.name, answers.empID, answers.email, answers.officeNum);
+   teamMembers.push(newManager);
+   addNewTeamMember();
+})
 
-// addEngineer()
-// .then(answers =>{
-//    console.log(answers);
-//    var newEngineer = new Engineer(answers.name, answers.empID, answers.email, answers.github);
-//    teamMembers.push(newEngineer);
-//    console.log(newEngineer);
-//    console.log(teamMembers);
-// })
 
-// addIntern()
-// .then(answers =>{
-//     console.log(answers);
-//     var newIntern = new Intern(answers.name, answers.empID, answers.email, answers.school);
-//     teamMembers.push(newIntern);
-//     console.log(teamMembers);
-// })
+
