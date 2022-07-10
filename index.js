@@ -1,8 +1,9 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateHTML = require('./utils/generateHTML');
+const test = require('./lib/Manager.js');
 
-//List of questions to ask user
+//List of questions to ask user initially
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -96,16 +97,41 @@ const promptUser = () => {
     ]);
 };
 
+//List of questions to ask users to add to their team
+
+const addMembers = () => {
+    return inquirer.prompt([{
+            type: 'list',
+            name: 'addToTeam',
+            message: 'Add a member to your team' ,
+            choices: ['Engineer', 'Intern', 'I have finished building my team']
+        }
+
+    ]);
+}
+
+
+
 promptUser()
 .then(answers => {
-    console.log(answers)
- ;   const hTML = generateHTML(answers);
+   
+    if (answers.addToTeam === 'Engineer'){
+        console.log('Engie Baby')
+    }  
+    
+    else if (answers.addToTeam === 'Intern'){
+        console.log('baby Intern');
+    }
+    else if (answers.addToTeam === 'I have finished building my team'){
+       
+    const hTML = generateHTML(answers);
     console.log(hTML);
 
     fs.writeFile('./index.html', hTML, err =>{
         if (err) throw new Error(err);
     })
-
+    }
+   
 
 
 })
