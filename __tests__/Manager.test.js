@@ -1,23 +1,20 @@
 const Employee = require('../lib/Employee');
 const Manager = require('../lib/Manager');
 
-//test to see if we can make a new employee object
+//test to see if we can make a new Manager object
 
-test('test to see if we can create a new employee object', ()=>{
+test('creates a Manager object by extending Employee', () => {
 
-       var manager = {
-        name: 'Sally Smith',
-        empID: '123465',
-        email: 'email@email.com',
-        officeNum: '12'
-    }
+       var manager = new Manager('Janice Smith', '45785', 'reena@yahoo.com','12');
+       
+       expect(manager.officeNum).toEqual('12');
+        })
 
-expect(manager.name).toBe('Sally Smith');
-expect(manager.empID).toBe('123465');
-expect(manager.email).toBe('email@email.com');
-expect(manager.officeNum).toBe('12');
 
-  
-})
+
+    
+
+
+ 
 
 
