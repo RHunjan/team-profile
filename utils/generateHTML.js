@@ -30,29 +30,78 @@ function sortEmployees(array){
     
     if (array[i].school){
         console.log('this is an intern');
+        var internPerson = {
+            name: array[i].name,
+            empID: array[i].empID,
+            email: array[i].email,
+            school: array[i].school
+        }
+        displayIntern(internPerson);
+
     }
 }
 }
 
 ////////////
 
-html = [];
+var html = [];
+ 
+ 
+
 
 function displayManager(person){
-    html.push('a test');
-    console.log(html);
-   
-
+    html.push(` 
+    <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Team Manager
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${person.name}</li>
+    <li class="list-group-item">${person.empID} in</li>
+    <li class="list-group-item">${person.email}</li>
+    <li class="list-group-item">${person.officeNum}</li>
+  </ul>
+</div>`);
 }
 
 function displayEngineer(engPerson){
-    html.push('another test');
-    console.log(html);
-
+    html.push(`
+    <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Engineer
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${engPerson.name}</li>
+    <li class="list-group-item">${engPerson.empID} in</li>
+    <li class="list-group-item">${engPerson.email}</li>
+    <li class="list-group-item">${engPerson.github}</li>
+  </ul>
+</div>
+    
+    `);
+    
 }
 
+function displayIntern(internPerson){
+    html.push(`
+    <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Engineer
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${internPerson.name}</li>
+    <li class="list-group-item">${internPerson.empID} in</li>
+    <li class="list-group-item">${internPerson.email}</li>
+    <li class="list-group-item">${internPerson.github}</li>
+  </ul>
+</div>
+    
+    `);
+    
+}
 
 /////////////////
+
 
 function generateHTML(array){
     sortEmployees(array);
@@ -69,9 +118,8 @@ function generateHTML(array){
 </head>
 <body>
     
- <h1> test <h1>
-
-${html};
+ 
+${html}
 
 
  <script src="./utils.generateHTML.js"></script>
