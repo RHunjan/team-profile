@@ -44,6 +44,7 @@ var html = [];
 
 function displayManager(person){
     html.push(` 
+
     <div class="card" style="width: 18rem;">
   <div class="card-header">
     Team Manager
@@ -112,11 +113,33 @@ function generateHTML(array){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="./utils/app.css">
 </head>
 <body>
+<header>
+  <div class="container-fluid">
+        <div class="row">
+            <div class="jumbotron mb-3 team-heading">
+                <h1>My Team</h1>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+<main>
+  <div class="container">
+  <div class="row" >
+    ${htmlJoin()}
+  </div>
+  
+</div>
+</main>
+
+
     
  
-${htmlJoin()}
+ 
 
 
  <script src="./utils.generateHTML.js"></script>
