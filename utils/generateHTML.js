@@ -51,8 +51,8 @@ function displayManager(person){
   </div>
   <ul class="list-group list-group-flush">
     
-    <li class="list-group-item">ID: ${person.empID} in</li>
-    <li class="list-group-item">Email: ${person.email}</li>
+    <li class="list-group-item">ID: ${person.empID}</li>
+    <li class="list-group-item">Email: <a href="mailto:${person.email}">${person.email}</a></li>
     <li class="list-group-item">Office Number:${person.officeNum}</li>
   </ul>
 </div>`);
@@ -68,7 +68,7 @@ function displayEngineer(engPerson){
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${engPerson.empID}</li>
     <li class="list-group-item">Email: ${engPerson.email}</li>
-    <li class="list-group-item">Office Number: ${engPerson.github}</li>
+    <li class="list-group-item">Office Number: <a href="https://github.com/${engPerson.github}">${engPerson.github}</a></li>
   </ul>
 </div>
     
