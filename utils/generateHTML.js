@@ -47,13 +47,15 @@ function displayManager(person){
     <div class="card" style="width: 18rem;">
   <div class="card-header">
     <h3>${person.name} </h3>
-   <span class="iconic iconic-clipboard" title="clipboard" aria-hidden="true"> Manager
+ <img src="./utils/images/coffee-cup.png" />
+ 
+ Manager
   </div>
   <ul class="list-group list-group-flush">
     
     <li class="list-group-item">ID: ${person.empID}</li>
     <li class="list-group-item">Email: <a href="mailto:${person.email}">${person.email}</a></li>
-    <li class="list-group-item">Office Number:${person.officeNum}</li>
+    <li class="list-group-item">Office Number: ${person.officeNum}</li>
   </ul>
 </div>`);
 }
@@ -63,11 +65,11 @@ function displayEngineer(engPerson){
     <div class="card" style="width: 18rem;">
   <div class="card-header">
     <h3>${engPerson.name}</h3>
-    </span>Engineer
+     <img src="./utils/images/engineer.png" />Engineer
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${engPerson.empID}</li>
-    <li class="list-group-item">Email: ${engPerson.email}</li>
+    <li class="list-group-item">Email: <a href="mailto:${engPerson.email}">${engPerson.email}</a></li>
     <li class="list-group-item">Office Number: <a href="https://github.com/${engPerson.github}">${engPerson.github}</a></li>
   </ul>
 </div>
@@ -81,12 +83,12 @@ function displayIntern(internPerson){
     <div class="card" style="width: 18rem;">
   <div class="card-header">
   <h3>${internPerson.name}</h3>
-    Intern
+         <img src="./utils/images/intern.png" /> Intern
   </div>
   <ul class="list-group list-group-flush">
   
     <li class="list-group-item">ID: ${internPerson.empID}</li>
-    <li class="list-group-item">Email: ${internPerson.email}</li>
+    <li class="list-group-item">Email: <a href="mailto:${internPerson.email}">${internPerson.email}</a></li>
     <li class="list-group-item">School: ${internPerson.school}</li>
   </ul>
 </div>
@@ -123,7 +125,7 @@ function generateHTML(array){
   <h1>My Team </h1>
  </div>
 
-
+  <span class="oi oi-task d-inline d-lg-none"></span>
 </header>
 <main>
   <div class="container">

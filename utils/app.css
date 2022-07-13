@@ -17,3 +17,13 @@
     color: white;
     text-align: center;
 }
+
+.card {
+    margin: 5px
+}
+
+img {
+    max-height: 20px;
+    color: white;
+    padding-right: 5px;
+}
