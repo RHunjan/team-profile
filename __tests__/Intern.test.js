@@ -10,3 +10,8 @@ test('creates an Intern object by extending Employee', () => {
        
        expect(intern.school).toEqual('McGill');
         });
+
+  test('see if Intern returns getRole() as Intern', () => {
+    const e = new Intern("Reena", '8509', 'reena@email.com');
+    expect(e.getRole()).toBe("Intern");
+});

@@ -10,3 +10,9 @@ test('creates an Engineer object by extending Employee', () => {
        
        expect(engineer.github).toEqual('Rhunjan');
         });
+
+
+    test('see if Engineer returns getRole() as Engineer', () => {
+    const e = new Engineer("Reena", '8509', 'reena@email.com');
+    expect(e.getRole()).toBe("Engineer");
+});

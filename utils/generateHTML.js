@@ -44,16 +44,16 @@ var html = [];
 
 function displayManager(person){
     html.push(` 
-
     <div class="card" style="width: 18rem;">
   <div class="card-header">
-    Team Manager
+    <h3>${person.name} </h3>
+   <span class="iconic iconic-clipboard" title="clipboard" aria-hidden="true"> Manager
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">${person.name}</li>
-    <li class="list-group-item">${person.empID} in</li>
-    <li class="list-group-item">${person.email}</li>
-    <li class="list-group-item">${person.officeNum}</li>
+    
+    <li class="list-group-item">ID: ${person.empID} in</li>
+    <li class="list-group-item">Email: ${person.email}</li>
+    <li class="list-group-item">Office Number:${person.officeNum}</li>
   </ul>
 </div>`);
 }
@@ -62,13 +62,13 @@ function displayEngineer(engPerson){
     html.push(`
     <div class="card" style="width: 18rem;">
   <div class="card-header">
-    Engineer
+    <h3>${engPerson.name}</h3>
+    </span>Engineer
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">${engPerson.name}</li>
-    <li class="list-group-item">${engPerson.empID} in</li>
-    <li class="list-group-item">${engPerson.email}</li>
-    <li class="list-group-item">${engPerson.github}</li>
+    <li class="list-group-item">ID: ${engPerson.empID}</li>
+    <li class="list-group-item">Email: ${engPerson.email}</li>
+    <li class="list-group-item">Office Number: ${engPerson.github}</li>
   </ul>
 </div>
     
@@ -80,13 +80,14 @@ function displayIntern(internPerson){
     html.push(`
     <div class="card" style="width: 18rem;">
   <div class="card-header">
-    Engineer
+  <h3>${internPerson.name}</h3>
+    Intern
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">${internPerson.name}</li>
-    <li class="list-group-item">${internPerson.empID} in</li>
-    <li class="list-group-item">${internPerson.email}</li>
-    <li class="list-group-item">${internPerson.github}</li>
+  
+    <li class="list-group-item">ID: ${internPerson.empID}</li>
+    <li class="list-group-item">Email: ${internPerson.email}</li>
+    <li class="list-group-item">School: ${internPerson.school}</li>
   </ul>
 </div>
     
@@ -113,17 +114,14 @@ function generateHTML(array){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <link rel="stylesheet" href="./utils/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="./utils/app.css">
 </head>
 <body>
 <header>
-  <div class="container-fluid">
-        <div class="row">
-            <div class="jumbotron mb-3 team-heading">
-                <h1>My Team</h1>
-            </div>
-        </div>
-    </div>
+ <div class="jumbotron">
+  <h1>My Team </h1>
+ </div>
 
 
 </header>
