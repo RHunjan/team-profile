@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.jumbotron {
+    background-color: red;
+    color: white;
+    min-height: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.card-header {
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+.card {
+    margin: 5px
+}
+
+img {
+    max-height: 20px;
+    color: white;
+    padding-right: 5px;
+}
