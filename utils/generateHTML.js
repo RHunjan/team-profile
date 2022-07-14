@@ -48,8 +48,7 @@ function displayManager(person){
   <div class="card-header">
     <h3>${person.name} </h3>
  <img src="./utils/images/coffee-cup.png" />
- 
- Manager
+  Manager
   </div>
   <ul class="list-group list-group-flush">
     
@@ -65,12 +64,13 @@ function displayEngineer(engPerson){
     <div class="card" style="width: 18rem;">
   <div class="card-header">
     <h3>${engPerson.name}</h3>
-     <img src="./utils/images/engineer.png" />Engineer
+     <img src="./utils/images/engineer.png" />
+     Engineer
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${engPerson.empID}</li>
     <li class="list-group-item">Email: <a href="mailto:${engPerson.email}">${engPerson.email}</a></li>
-    <li class="list-group-item">Office Number: <a href="https://github.com/${engPerson.github}">${engPerson.github}</a></li>
+    <li class="list-group-item">Github: <a href="https://github.com/${engPerson.github}">${engPerson.github}</a></li>
   </ul>
 </div>
     
@@ -83,7 +83,8 @@ function displayIntern(internPerson){
     <div class="card" style="width: 18rem;">
   <div class="card-header">
   <h3>${internPerson.name}</h3>
-         <img src="./utils/images/intern.png" /> Intern
+   <img src="./utils/images/intern.png" /> 
+   Intern
   </div>
   <ul class="list-group list-group-flush">
   
